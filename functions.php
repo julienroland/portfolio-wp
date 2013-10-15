@@ -1,8 +1,8 @@
 <?php
 add_filter('excerpt_more', 'new_excerpt_more');
 add_filter('get_avatar','change_avatar_css');
-add_filter('wp_nav_menu_items','add_search_box', 10, 2);
-
+add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+add_filter( 'image_send_to_editor', 'remove_width_attribute', 10 );
 /*Thème support*/
 
 add_theme_support( 'post-thumbnails' ); 
@@ -24,6 +24,11 @@ function register_my_menus() {
     );
 }
 
+
+function remove_width_attribute( $html ) {
+ $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+ return $html;
+}
 function create_post_type() {
     register_post_type( 'projet',
         array(
@@ -33,11 +38,11 @@ function create_post_type() {
                 ),
             'public' => true,
             'has_archive' => true,
+            'show_in_menu'=> true,
+            'show_in_nav_menus' => true,
             'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields')
             )
         );
-
-
 }
 function olab_register_taxonomy_for_images() {
     register_taxonomy_for_object_type( 'category', 'attachment' );
@@ -63,16 +68,6 @@ function portfolio_widgets_init()
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
         ) );
-}
-function add_search_box($items, $args) {
-
-    ob_start();
-    get_search_form();
-    $searchform = ob_get_contents();
-    ob_end_clean();
-
-    $items .=  $searchform ;
-    return $items;
 }
 function olab_add_image_category_filter() {
     $screen = get_current_screen();
