@@ -8,7 +8,7 @@ Template Name: Qui
   <h1 class="section">Mon portfolio, qui suis-je?</h1>
   <section id="container">
     <h1 class="section">Contenu principal</h1>
-    <?php include('nav.php'); ?>
+     <?php get_template_part('nav'); ?>
   <section class="main">
     <ul class="breadcrumbs">
       <li><a href="index.html">Accueil</a></li>

@@ -3,6 +3,10 @@ add_filter('excerpt_more', 'new_excerpt_more');
 add_filter('get_avatar','change_avatar_css');
 add_filter('wp_nav_menu_items','add_search_box', 10, 2);
 
+/*Thème support*/
+
+add_theme_support( 'post-thumbnails' ); 
+
 function new_excerpt_more( $more ) {
     return '...';
 }
@@ -29,11 +33,16 @@ function create_post_type() {
                 ),
             'public' => true,
             'has_archive' => true,
-            'supports' => array('title','editor','author','excerpt','custom-fields')
+            'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields')
             )
         );
 
+
 }
+function olab_register_taxonomy_for_images() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+}
+
 function portfolio_widgets_init()
 {
     register_sidebar( array(
@@ -65,7 +74,15 @@ function add_search_box($items, $args) {
     $items .=  $searchform ;
     return $items;
 }
-
+function olab_add_image_category_filter() {
+    $screen = get_current_screen();
+    if ( 'upload' == $screen->id ) {
+        $dropdown_options = array( 'show_option_all' => __( 'View all categories', 'olab' ), 'hide_empty' => false, 'hierarchical' => true, 'orderby' => 'name', );
+        wp_dropdown_categories( $dropdown_options );
+    }
+}
+add_action( 'restrict_manage_posts', 'olab_add_image_category_filter' );
+add_action( 'init', 'olab_register_taxonomy_for_images' );
 add_action( 'init', 'register_my_menus' );
 add_action( 'init', 'create_post_type' );
 add_action('widgets_init', 'portfolio_widgets_init');

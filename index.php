@@ -25,7 +25,7 @@ get_header();
     </header>
     <section id="container">
       <h1 class="section">Contenu principal</h1>
-      <?php include('nav.php'); ?>
+     <?php get_template_part('nav'); ?>
       <section class="main">
         <?php include('breadcrumbs.php'); ?>
         <h2><i class="icon-book"></i>&nbsp;Mes derniers post</h2>

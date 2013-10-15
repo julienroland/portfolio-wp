@@ -4,7 +4,7 @@
   <h1 class="section">Voici mon blog</h1>
   <section id="container" >
     <h1 class="section">Contenu principal de mon blog</h1>
-    <?php include ('nav.php'); ?>
+     <?php get_template_part('nav'); ?>
     <section role="main" class="main">
       <ul class="breadcrumbs">
         <li><a href="index.html">Accueil</a></li>

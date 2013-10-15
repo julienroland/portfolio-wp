@@ -156,7 +156,7 @@ nav ul li{
     cursor: text;
     outline: 0 none;
     width: 230px;
-     @include single-box-shadow(lighten($main,40%),0,0,5px);
+    @include single-box-shadow(lighten($main,40%),0,0,5px);
 }
 ul>li.bulle{   
     z-index: 100;
@@ -276,13 +276,21 @@ p.text{
 nav.top-bar{
     padding:0 2%;
     position: fixed;
-    a,li{
-        overflow: visible;
-        text-decoration: none;
+    li{
         &:hover{
-            text-decoration:none;
-            background-color: rgba(100,100,100,0.1);
-            @include transition(all,0.3s,ease)
+            background-color: rgba(100,100,100,0.6);
+        }
+        a{
+
+
+            overflow: visible;
+            text-decoration: none;
+            color:white;
+            &:hover{
+                text-decoration:none;
+                @include transition(all,0.3s,ease);
+            
+            }
         }
     }
 }
@@ -376,7 +384,7 @@ ul#imgTracker{
  @include transition(transform 10000ms cubic-bezier(0, 0, .80, .90));
  background-color: $mainA;
 }
-input:hover,textarea:hover,input:focus,textarea:focus{
+input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:active{
     border:1px solid $main;
     @include single-box-shadow(lighten($main,40%),0,0,5px);
 }
@@ -392,6 +400,7 @@ input[type="checkbox"]{
 #contactForm .row{
     margin:1em 0;
 }
+
 input[type="submit"]
 {
     background-color: $main;
@@ -516,9 +525,7 @@ i{
     line-height: 2em;
     display:block;
     padding:0 0.5em;
-    &:hover{
-        background-color:$main;
-    }
+
 }
 article>p{
     line-height: 1.5em;

@@ -8,7 +8,7 @@ Template Name: Projet
 <h1 class="section">Ici sont présentés mes projets</h1>
   <section id="container">
     <h1 class="section">Contenu principal</h1>
-<?php include('nav.php'); ?>
+     <?php get_template_part('nav'); ?>
 <section class="main">
   <ul class="breadcrumbs">
     <li><a href="quisuisje.html">Accueil</a></li>

@@ -3,7 +3,7 @@
   <h1 class="section">Article découerte de Modernizr</h1>
   <section id="container" >
     <h1 class="section">Contenu principal</h1>
-    <?php include ('nav.php'); ?>
+     <?php get_template_part('nav'); ?>
     <section role="main" class="main" itemscope itemtype="http://schema.org/Article">
       <?php if(have_posts()): ?>
       <?php while(have_posts()): the_post(); ?>

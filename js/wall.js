@@ -361,7 +361,7 @@ resizeMainIcon();
     gMap = new google.maps.Map(document.getElementById('gmap'),
     {
       center:new google.maps.LatLng(villeCentre[0],villeCentre[1]),
-      zoom:12,
+      zoom:9,
       disableDefaultUI:true,
       scrollwheel:false,
       zoomControl:true,
