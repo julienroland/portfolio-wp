@@ -5,7 +5,6 @@ Template Name: index
 <?php
 get_header();
 ?>
-
 <body id="accueil">
   <h2 class="section">Portfolio de Julien Roland webdesigner</h2>
   <header>
@@ -27,7 +26,7 @@ get_header();
       <h1 class="section">Contenu principal</h1>
      <?php get_template_part('nav'); ?>
       <section class="main">
-        <?php include('breadcrumbs.php'); ?>
+        <?php get_template_part('breadcrumbs'); ?>
         <h2><i class="icon-book"></i>&nbsp;Mes derniers post</h2>
         <?php if(have_posts()):?>
         <?php  $args = array('showposts' => 2);?>

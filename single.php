@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+
 <body id="top">
   <h1 class="section">Article découerte de Modernizr</h1>
   <section id="container" >
