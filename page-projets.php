@@ -10,10 +10,7 @@ Template Name: Projet
     <h1 class="section">Contenu principal</h1>
     <?php get_template_part('nav'); ?>
     <section class="main">
-      <ul class="breadcrumbs">
-        <li><a href="quisuisje.html">Accueil</a></li>
-        <li class="current">Projets</li>
-      </ul>
+             <?php get_template_part('breadcrumbs'); ?>
       <article class="row">
         <h2><i class="icon-suitcase"></i>&nbsp;Voici mes projets</h2>
         <div class="large-4 columns"><img class="track" src="<?php bloginfo('stylesheet_directory'); ?>/img/projet.png" alt="">
@@ -37,7 +34,7 @@ Template Name: Projet
   </section>
 </section>
 <div class="image">
-  <?php include('slider.php'); ?>
+  <?php get_template_part('slider'); ?>
 </div>
 
 <?php get_footer(); ?>

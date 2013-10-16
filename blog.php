@@ -10,10 +10,7 @@ Template Name: Blog
     <h1 class="section">Contenu principal de mon blog</h1>
      <?php get_template_part('nav'); ?>
     <section role="main" class="main">
-      <ul class="breadcrumbs">
-        <li><a href="index.html">Accueil</a></li>
-        <li class="current">Blog</li>
-      </ul>
+              <?php get_template_part('breadcrumbs'); ?>
       <div class="row">
         <h2><i class="icon-globe"></i>&nbsp;Mon blog </h2> 
       </div>

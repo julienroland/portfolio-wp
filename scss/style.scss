@@ -238,19 +238,14 @@ figure{
     max-width: 100%;
 }
 h2{
-    font-size: 35px;
+    font-size: 2.8em;
     margin-bottom: 1em;
     padding-bottom: 10px;
     text-align: center;
     font-weight: bold;
+    color:$main;
     border-bottom: 1px dashed rgba(0,0,0,0.5);
-    @include single-text-shadow(gray,1px,1px,0px);
-    &:hover{
-        color:$main;
-        border-bottom: 1px dashed rgba(10,200,100,0.3);
-        @include transition(all,0.3s,ease);
-        @include single-text-shadow(black,1px,1px,0px);
-    }
+    @include single-text-shadow(black,1px,1px,0px);
 }
 a{
     color:$main;
@@ -326,18 +321,23 @@ ul#imgTracker{
         img{
             display: inline;
             margin:auto;
-
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            margin:auto;
         }
 
     }
 
     li:first-child{
 
-     height:300px;
-     width:300px;
+       height:300px;
+       width:300px;
 
 
-     img{
+       img{
         position:absolute;
         top:0;
         bottom:0;
@@ -383,12 +383,18 @@ ul#imgTracker{
 }
 #imgTracker li.th:hover {
 
- @include transition(transform 10000ms cubic-bezier(0, 0, .80, .90));
- background-color: $mainA;
+   @include transition(transform 10000ms cubic-bezier(0, 0, .80, .90));
+   background-color: $mainA;
 }
 input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:active{
     border:1px solid $main;
     @include single-box-shadow(lighten($main,40%),0,0,5px);
+}
+input:valid{
+    background-color: lighten($main,45%);
+}
+input:invalid{
+    background-color: lighten($false,45%);
 }
 input[type="text"]{
     padding:0 0.5em;
@@ -554,9 +560,9 @@ article>p{
 
         float:none;
         h3{
-           text-align: center;
-       }
-   }
+         text-align: center;
+     }
+ }
 }
 textarea{
     min-height: 60px;
@@ -619,15 +625,23 @@ article .fullArticle{
     margin: auto;
     text-align: justify;
 }
+article {
+    img{
+        float:left;
+        margin:0 1em 1em 0;
+    }
+    .button{
+    }
+}
 
 .infosDate{
     font-size: 0.9em;
     line-height: 1.5em;
 
     p{
-     text-align: center; 
-     color:$gray;
- }
+       text-align: center; 
+       color:$gray;
+   }
 
 }
 .article{
@@ -666,12 +680,12 @@ article .fullArticle{
         li{
 
 
-           &:hover{
-               background-color: black; 
-           }
-       }
+         &:hover{
+             background-color: black; 
+         }
+     }
 
-       a{
+     a{
         color:white;
 
         &:hover{

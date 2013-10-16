@@ -78,10 +78,7 @@ if(isset($_POST['submitted'])) {
 		<h1 class="section">Contenu principal</h1>
      <?php get_template_part('nav'); ?>
      <section class="main">
-       <ul class="breadcrumbs">
-        <li><a href="index.html">Accueil</a></li>
-        <li class="current">Contact</li>
-    </ul>
+               <?php get_template_part('breadcrumbs'); ?>
     <div class="row">
         <h2><i class="icon-globe"></i>&nbsp;Me contacter? </h2>
         <div class="large-4 columns">

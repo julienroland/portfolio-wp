@@ -24,7 +24,7 @@ get_header();
     </header>
     <section id="container">
       <h1 class="section">Contenu principal</h1>
-     <?php get_template_part('nav'); ?>
+      <?php get_template_part('nav'); ?>
       <section class="main">
         <?php get_template_part('breadcrumbs'); ?>
         <h2><i class="icon-book"></i>&nbsp;Mes derniers post</h2>
@@ -41,15 +41,17 @@ get_header();
           </div>
           <article class="large-9 columns">
             <h3><?php the_title();?></h3>
+            <?php the_post_thumbnail(); ?>
             <?php the_excerpt(); ?>
+
             <a class="small button radius" href="<?php the_permalink(); ?>">Lire la suite</a>
           </article>
         </div>
       <?php endwhile; ?>
-    <?php else: 
-    echo wpautop( 'Aucun post disponible' );
-    endif; ?>
+      <?php else: 
+      echo wpautop( 'Aucun post disponible' );
+      endif; ?>
+    </section>
   </section>
-</section>
-<?php comments_template(); ?>
-<?php get_footer();?>
+  <?php comments_template(); ?>
+  <?php get_footer();?>

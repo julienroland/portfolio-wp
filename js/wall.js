@@ -185,9 +185,7 @@ if($('#container').size()&&!$('#accueil').size())
     $('#down').goTo();
   });
 }
-$('.main').css({
-  minHeight:iHeight,
-});
+
 
 $('a[href~="index"]').on("click",function(e){
   $('#container').goTo();
@@ -226,9 +224,6 @@ $(window).resize(function()
   $('#gmap').css({
     height:nHeightDoc,
     width:nWidthDoc,
-  });
-  $('.main').css({
-    minHeight:iHeight,
   });
   if(iHeight<=400)
   {

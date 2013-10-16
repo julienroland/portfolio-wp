@@ -10,10 +10,7 @@ Template Name: Qui
     <h1 class="section">Contenu principal</h1>
      <?php get_template_part('nav'); ?>
   <section class="main">
-    <ul class="breadcrumbs">
-      <li><a href="index.html">Accueil</a></li>
-      <li class="current">Qui suis-je</li>
-    </ul>
+            <?php get_template_part('breadcrumbs'); ?>
             <?php if(have_posts()):?>
         <?php while(have_posts()): the_post();?>
     <div class="row">
