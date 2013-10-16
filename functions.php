@@ -27,8 +27,8 @@ function register_my_menus() {
 
 /*SUPP les dimensions des images*/
 function remove_width_attribute( $html ) {
- $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
- return $html;
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
 }
 /* mes post type*/ 
 function create_post_type() {
@@ -63,7 +63,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
     $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
     $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
-    $output .= $indent . '<li' . $id . $value . $class_names .'>';
+    $output .= $indent . '<li class="animated bounce"' . $id . $value . $class_names .'>';
 
     $atts = array();
     $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -80,9 +80,24 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
             $attributes .= ' ' . $attr . '="' . $value . '"';
         }
     }
+    switch ($item->title) {
+        case 'Qui suis-je ?':
+        $icon = '<i class="icon-user"></i>';
+        break;
+        case 'Blog':
+        $icon = '<i class="icon-comment"></i>';
+        break;
+        case 'Projets':
+        $icon = '<i class="icon-suitcase"></i>';
+        break;
+        case 'Contact':
+        $icon = '<i class="icon-globe"></i>';
+        break;
 
+
+    }
     $item_output = $args->before;
-    $item_output .= '<a'. $attributes .'><i class="icon-user"></i>';
+    $item_output .= '<a'. $attributes .'>'.$icon;
     $item_output .= '<p>'.$args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after.'</p>';
 
     $item_output .= '</a>';
@@ -131,105 +146,105 @@ function olab_add_image_category_filter() {
     }
 }
 /*Pagination*/
- function pagination( $query) {
+function pagination( $query) {
     // Nombre d'elements a afficher avant et après la page courante
     $NB_TO_DISPLAY = 4;
-  
+
     $baseURL = "http://".$_SERVER['HTTP_HOST'];
     if($_SERVER['REQUEST_URI'] != "/"){
       $baseURL = $baseURL.$_SERVER['REQUEST_URI'];
-    }
-    
+  }
+
     // Suppression de '/page' de l'URL
-    $sep = strrpos($baseURL, '/page/');
-    if($sep != FALSE){
+  $sep = strrpos($baseURL, '/page/');
+  if($sep != FALSE){
       $baseURL = substr($baseURL, 0, $sep);
-    }
-    
+  }
+
     // Suppression des parametres de l'URL
-    $sep = strrpos($baseURL, '?');
-    if($sep != FALSE){
+  $sep = strrpos($baseURL, '?');
+  if($sep != FALSE){
       // On supprime le caractere avant qui est un '/' 
       $baseURL = substr($baseURL, 0, ($sep-1));
-    }
-    
+  }
+
     // Recuperation des parametres pour les re-afficher dans les liens
-    $qs = $_SERVER["QUERY_STRING"] ? "?".$_SERVER["QUERY_STRING"] : "";
-    $hasQs = false;
-    
-    if($qs != "")
+  $qs = $_SERVER["QUERY_STRING"] ? "?".$_SERVER["QUERY_STRING"] : "";
+  $hasQs = false;
+
+  if($qs != "")
       $hasQs = true;
   
-    $page = $query->query_vars["paged"];
-    if ( !$page ){
+  $page = $query->query_vars["paged"];
+  if ( !$page ){
       $page = 1;
-    }
+  }
   
     // Generation et affichage uniquement si il y a plusieurs pages
-    if ( $query->found_posts > $query->query_vars["posts_per_page"] ) {
+  if ( $query->found_posts > $query->query_vars["posts_per_page"] ) {
       // Calcul des pages a afficher
       $minPage = $page - $NB_TO_DISPLAY;
       if($minPage <= 0){
         $minPage = 1;
-      }
-      $maxPage = $minPage + ($NB_TO_DISPLAY * 2);
-      if($maxPage > $query->max_num_pages){
+    }
+    $maxPage = $minPage + ($NB_TO_DISPLAY * 2);
+    if($maxPage > $query->max_num_pages){
         $maxPage = $query->max_num_pages;
-      }
-  
-      $html =  '<div class="row "><div class="large-3 large-centered columns"><ul id="pagination">';
+    }
+
+    $html =  '<div class="row "><div class="large-3 large-centered columns"><ul id="pagination">';
       //$html .= "<li>Page ".$page." sur ".$query->max_num_pages."</li>";
-  
-      if($page > 1){
+
+    if($page > 1){
         $previous = $page -1;
         $html .= "<li><a href='".$baseURL."/page/".$previous;
         if($hasQs)
           $html .= $qs;
-        $html .= "'>&laquo; Précédente</a></li>";
-      } 
-      if($minPage > 1){
-                $html .= "<li><a href='".$baseURL."/page/1";
-                if($hasQs)
-                  $html .= $qs;
-                $html .= "'>1</a></li>";
-      }
-      if($minPage > 2){      
-                      $html .= "<li>...</li>";
-                    } 
-  
-      // Boucle dans les pages
-      for ( $i=$minPage; $i <= $maxPage; $i++ ) {
-        // Detection de la page active dans la liste des liens
-        if ( $i == $page ) {
-          $html .= '<li class="activePage">'.$i.'</li>';
-        } else {
-          $html .= '<li><a href="'.$baseURL.'/page/'.$i;
-          if($hasQs)
-            $html .= $qs;
-          $html .= '">'.$i.'</a></li>';
-        }
-      }
+      $html .= "'>&laquo; Précédente</a></li>";
+  } 
+  if($minPage > 1){
+    $html .= "<li><a href='".$baseURL."/page/1";
+    if($hasQs)
+      $html .= $qs;
+  $html .= "'>1</a></li>";
+}
+if($minPage > 2){      
+  $html .= "<li>...</li>";
+} 
 
-      if($maxPage < $query->max_num_pages){
-              if($maxPage < $query->max_num_pages -1)
-                $html .= "<li>...</li>";
-        $html .= '<li><a href="'.$baseURL.'/page/'.$query->max_num_pages;
-        if($hasQs)
-          $html .= $qs;
-        $html .='">'.$query->max_num_pages.'</a></li>';
-      }        
-      if($page < $query->max_num_pages){
-        $html .= '<li><a href="'.$baseURL.'/page/'.($page+1);
-        if($hasQs)
-          $html .= $qs;
-        $html .= '">Suivante &raquo;</a></li>';
-      }
-      $html .= '</ul></div></div>';
-  
+      // Boucle dans les pages
+for ( $i=$minPage; $i <= $maxPage; $i++ ) {
+        // Detection de la page active dans la liste des liens
+    if ( $i == $page ) {
+      $html .= '<li class="activePage">'.$i.'</li>';
+  } else {
+      $html .= '<li><a href="'.$baseURL.'/page/'.$i;
+      if($hasQs)
+        $html .= $qs;
+    $html .= '">'.$i.'</a></li>';
+}
+}
+
+if($maxPage < $query->max_num_pages){
+  if($maxPage < $query->max_num_pages -1)
+    $html .= "<li>...</li>";
+$html .= '<li><a href="'.$baseURL.'/page/'.$query->max_num_pages;
+if($hasQs)
+  $html .= $qs;
+$html .='">'.$query->max_num_pages.'</a></li>';
+}        
+if($page < $query->max_num_pages){
+    $html .= '<li><a href="'.$baseURL.'/page/'.($page+1);
+    if($hasQs)
+      $html .= $qs;
+  $html .= '">Suivante &raquo;</a></li>';
+}
+$html .= '</ul></div></div>';
+
       // Affichage de la liste des liens
-          echo $html;
-    }
-  }
+echo $html;
+}
+}
 add_action( 'restrict_manage_posts', 'olab_add_image_category_filter' );
 add_action( 'init', 'olab_register_taxonomy_for_images' );
 add_action( 'init', 'register_my_menus' );

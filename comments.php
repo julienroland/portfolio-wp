@@ -86,7 +86,7 @@ else $oddcomment = 'comment';
         <p><input type="email" name="email" placeholder="Entrer votre email" required id="email" value="<?php echo $comment_author_email; ?>" size="40" tabindex="2" />
 
             <label for="url"><small>Site Web</small></label></p>
-            <p><input type="text" name="url" placeholder="Entrer votre site web" id="url" value="<?php echo $comment_author_url; ?>" size="40" tabindex="3" />
+            <p><input type="url" name="url" placeholder="Entrer votre site web" id="url" value="<?php echo $comment_author_url; ?>" size="40" tabindex="3" />
 
 
             <?php endif; ?>
