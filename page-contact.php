@@ -187,6 +187,7 @@ if(isset($_POST['submitted'])) {
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
 <?php } ?>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&sensor=false"></script>
 <?php get_footer(); ?>

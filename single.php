@@ -25,6 +25,7 @@
     <?php comments_template(); ?>
   <?php endwhile; ?>
 <?php endif; ?>
+    <?php wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer();

@@ -6690,7 +6690,7 @@ label.error {
 
 /* line 306, ../scss/foundation/components/_top-bar.scss */
 
-.top-bar-section ul li.active > a {
+.top-bar-section ul li.current_page_item > a {
   background: #090909;
   color: white;
 }

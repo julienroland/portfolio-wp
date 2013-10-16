@@ -28,7 +28,7 @@ Template Name: Projet
           echo get_post(get_post_thumbnail_id())->post_excerpt; ?>*<a href="<?php the_permalink(); ?>" class="medium button" title="<?php the_title_attribute(); ?>">Voir le projet</a></div></li>
 
         <?php endwhile;?>
-
+            <?php wp_reset_postdata(); ?> 
       </ul>
 
     </div>

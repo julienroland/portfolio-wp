@@ -33,7 +33,7 @@ nav{
 }
 #commentform{
     p{
-        margin:1.5em 0;
+        margin:1em 0;
     }
     label+p{
         margin-top: 0;
@@ -74,6 +74,10 @@ nav ul li{
         top:-20%;
         position:relative;
     }
+}
+.noComment{
+    text-align: center;
+    font-style: italic;
 }
 .orbit-prev,.orbit-next{
     height:100%;
@@ -216,6 +220,7 @@ figure{
     background-color: rgba(100,100,100,0.1);
     overflow: hidden;
     padding-top:40px;
+    @include single-box-shadow(black,10px,10px,100px,1px);
     .down{
         position:absolute;
         width:150px;
@@ -388,10 +393,13 @@ input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:acti
     border:1px solid $main;
     @include single-box-shadow(lighten($main,40%),0,0,5px);
 }
-input:valid{
+input{
+    background-color: white;
+}
+input:valid,textarea:valid{
     background-color: lighten($main,45%);
 }
-input:invalid{
+input:invalid,textarea:invalid{
     background-color: lighten($false,45%);
 }
 input[type="text"]{
@@ -402,6 +410,14 @@ input[type="checkbox"]{
     margin:0;
     margin-top: 5px;
     margin-right: 1em;
+}
+#pagination{
+    @include horizontal-list();
+    text-align: center;
+    li{
+        display:inline-block;
+        float:none;
+    }
 }
 #contactForm .row{
     margin:1em 0;
@@ -538,7 +554,6 @@ i{
 }
 article>p{
     line-height: 1.5em;
-    max-width: 80%;
     text-align: justify;
     margin: auto;
 }
@@ -651,7 +666,7 @@ article {
 }
 .article{
     display:block;
-    width:100%;
+    width:80%;
     text-decoration: none;
 }
 .icon-calendar.article{

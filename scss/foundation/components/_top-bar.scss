@@ -303,7 +303,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
       }
 
       // Apply the active link color when it has that class
-      &.active > a {
+      &.current_page_item > a {
         background: $topbar-link-bg-active;
         color: $topbar-link-color-active;
       }
