@@ -41,9 +41,9 @@ get_header();
           </div>
           <article class="large-9 columns">
             <h3><?php the_title();?></h3>
-            <?php the_post_thumbnail(); ?>
+            <span><?php the_post_thumbnail(); ?>
             <?php the_excerpt(); ?>
-
+            </span>
             <a class="small button radius" href="<?php the_permalink(); ?>">Lire la suite</a>
           </article>
         </div>

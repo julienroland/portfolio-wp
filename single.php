@@ -8,7 +8,7 @@
     <section role="main" class="main" itemscope itemtype="http://schema.org/Article">
       <?php if(have_posts()): ?>
       <?php while(have_posts()): the_post(); ?>
-      <?php include('breadcrumbs.php'); ?>
+      <?php get_template_part('breadcrumbs'); ?>
       <h2><i class="icon-globe"></i>&nbsp;<?php the_title(); ?></h2>
       <div class="row head">
         <div class="infosDate"  itemtype="http://schema.org/Person">

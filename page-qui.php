@@ -27,10 +27,6 @@ Template Name: Qui
  <?php endif; ?>
    </section>
  </section>
- <section class="image">
-  <h2 class="section">Slider de mes derniers projets</h2>
-    <div class="preloader"></div>
-<?php include('slider.php'); ?>
-</section>
+
  
 <?php get_footer(); ?>

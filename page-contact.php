@@ -135,7 +135,7 @@ if(isset($_POST['submitted'])) {
      <span class="error"><?=$commentError;?></span> 
      <?php } ?>
  </div>
- <aside class="large-5 large-offset-1 columns">
+ <aside class="large-6 columns">
              <?php // The Query
              $user_query = new WP_User_Query(  array( 'role' => 'Administrator' ) );
 

@@ -2,8 +2,8 @@
   var iHeight=$(window).height();
   var nHeightDoc = (($(window).height())/3)*2;
   var headerHeight = $('header').height();
-  var aImg= ["img/wall.png","img/wall1.png","img/wall2.png"];
-  var aBackground = ["img/background.png","img/background2.png","img/background3.png"];
+  var aImg= [/*"img/wall.png","img/wall1.png","img/wall2.png"*/];
+  var aBackground = [/*"img/background.png","img/background2.png","img/background3.png"*/];
 
   $('.bulle>figure').hide();
 
@@ -72,6 +72,7 @@ function resizeImage()
   {
     $('.image').css({
       height:(iHeight/3)*2,
+      minHeight: 350,
       width:'100%',
       backgroundRepeat:'no-repeat',
     });
@@ -185,7 +186,9 @@ if($('#container').size()&&!$('#accueil').size())
     $('#down').goTo();
   });
 }
-
+$('.main').css({
+  minHeight:iHeight,
+});
 
 $('a[href~="index"]').on("click",function(e){
   $('#container').goTo();
@@ -224,6 +227,9 @@ $(window).resize(function()
   $('#gmap').css({
     height:nHeightDoc,
     width:nWidthDoc,
+  });
+  $('.main').css({
+    minHeight:iHeight,
   });
   if(iHeight<=400)
   {

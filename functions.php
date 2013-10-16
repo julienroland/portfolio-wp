@@ -30,7 +30,7 @@ function remove_width_attribute( $html ) {
  return $html;
 }
 function create_post_type() {
-    register_post_type( 'projet',
+    register_post_type( 'work',
         array(
             'labels' => array(
                 'name' => __( 'Projets' ),
