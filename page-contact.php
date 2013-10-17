@@ -190,4 +190,5 @@ if(isset($_POST['submitted'])) {
     <?php wp_reset_postdata(); ?>
 <?php } ?>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&sensor=false"></script>
+  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>
 <?php get_footer(); ?>

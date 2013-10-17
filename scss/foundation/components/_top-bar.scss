@@ -241,7 +241,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
       width: 100%;
       height: auto;
       display: block;
-      background: $topbar-dropdown-bg;
+     
       font-size: $em-base;
       margin: 0;
     }
@@ -264,7 +264,6 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
         padding-#{$default-float}: $topbar-height / 3;
         font-size: $topbar-link-font-size;
         font-weight: $topbar-link-weight;
-        background: $topbar-dropdown-bg;
 
         &.button {
           background: $primary-color;
@@ -298,14 +297,14 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
 
       // Apply the hover link color when it has that class
       &:hover > a {
-        background: $topbar-link-bg-hover;
-        color: $topbar-link-color-hover;
+
       }
 
       // Apply the active link color when it has that class
       &.current_page_item > a {
-        background: $topbar-link-bg-active;
+        background: lighten($topbar-link-bg-active,50%);
         color: $topbar-link-color-active;
+        font-weight:400;
       }
     }
 
@@ -439,8 +438,7 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
         a:not(.button) {
           padding: 0 $topbar-height / 3;
           line-height: $topbar-height;
-          background: $topbar-bg;
-          &:hover { background: $topbar-link-bg-hover; }
+          &:hover { opacity:0.8; }
         }
       }
 

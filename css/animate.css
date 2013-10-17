@@ -25,7 +25,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	        animation-fill-mode: both;
 }
 
-.animated.hinge {
+.animated.hinge:hover {
 	-webkit-animation-duration: 2s;
 	   -moz-animation-duration: 2s;
 	     -o-animation-duration: 2s;
@@ -82,7 +82,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	20%, 40%, 60%, 80% {transform: translateX(10px);}
 }
 
-.animated.shake {
+.animated.shake:hover {
 	-webkit-animation-name: shake;
 	-moz-animation-name: shake;
 	-o-animation-name: shake;
@@ -111,7 +111,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	60% {transform: translateY(-15px);}
 }
 
-.animated.bounce {
+.animated.bounce:hover {
 	-webkit-animation-name: bounce;
 	-moz-animation-name: bounce;
 	-o-animation-name: bounce;
@@ -269,7 +269,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
     100% { transform: scale(1); }
 }
 
-.animated.pulse {
+.animated.pulse:hover {
 	-webkit-animation-name: pulse;
 	-moz-animation-name: pulse;
 	-o-animation-name: pulse;
@@ -3310,7 +3310,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	100% { transform: translateY(700px); opacity: 0; }
 }
 
-.animated.hinge {
+.animated.hinge:hover {
 	-webkit-animation-name: hinge;
 	-moz-animation-name: hinge;
 	-o-animation-name: hinge;

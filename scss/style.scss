@@ -2,15 +2,119 @@
 @import "compass/reset";
 @import "foundation/variables";
 @import "_variables";
-
+@import url(http://fonts.googleapis.com/css?family=Lato:400,100,300,700,900);
+@import "socialH/*.png";
+@include all-socialH-sprites;
+@import "social/*.png";
+@include all-social-sprites;
 
 body{
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: Lato,Ubuntu,Helvetica,Arial;
     background-color: white;
     font-size: 16px;
     line-height: 1.5em;
     height:auto;
+    color:$grayStyle;
     text-rendering:optimizeLegibility  ;
+}
+a{
+    text-decoration: underline;
+}
+.facebook,
+.gmail,
+.linkedin,
+.twitter,
+.wordpress {
+  background: url('../img/socialH-s6f05c78d5d.png') no-repeat;
+  &:hover{
+      background: url('../img/social-sde45399f23.png') no-repeat;
+  }
+}
+
+.social{
+
+ @include horizontal-list();
+ ul{
+
+    text-align: center;
+    width:100%;
+
+    li{
+        display:inline-block;
+        width:32px;
+        height: 32px;
+        float:none;
+        margin-top:5px;
+
+    }
+    li.facebook{
+     background-position: 0 -128px;
+
+     a{
+        text-indent: -9999px;
+        display:block;
+        width:32px;
+        height:32px;
+        
+    }
+    &:hover{
+      background-position: 0 -128px;
+      height: 64px;
+  }
+}
+li.gmail{
+  background-position: 0 -96px;
+  a{
+    text-indent: -9999px;
+    display:block;
+    width:32px;
+    height:32px;
+}
+&:hover{
+    background-position: 0 0;
+
+
+}
+}
+li.linkedin{
+  background-position: 0 -64px;
+  a{
+    text-indent: -9999px;
+    display:block;
+    width:32px;
+    height:32px;
+}
+&:hover{
+  background-position: 0 -96px;
+}
+}
+li.twitter{
+   background-position: 0 -32px;
+   a{
+    text-indent: -9999px;
+    display:block;
+    width:32px;
+    height:32px;
+}
+&:hover{
+    background-position: 0 -64px;
+
+}
+}
+li.wordpress{
+   background-position: 0 0;
+   a{
+    text-indent: -9999px;
+    display:block;
+    width:32px;
+    height:32px;
+}
+&:hover{
+  background-position: 0 -32px;
+
+}
+}
+}
 }
 nav{    
     position:relative;
@@ -75,6 +179,9 @@ nav ul li{
         position:relative;
     }
 }
+.social{
+    height: 40px;
+}
 .noComment{
     text-align: center;
     font-style: italic;
@@ -88,9 +195,13 @@ nav ul li{
 .image{
     position:relative;
     z-index: 10;
-    background-color: black;
-
-
+    background-color: #171C1F;
+    height: 400px;
+    background-image: image-url('logo.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include single-box-shadow(black,0,-10px,60px,10px,inset);
     .ban{
         /*background-color: rgba(0,0,0,0.6);*/
         left:0;
@@ -138,7 +249,6 @@ nav ul li{
     @include border-radius(5px);
 }
 .top-bar form .search-field{
-    background-color: rgba(0, 0, 0, 0);
     background-image: image-url("icon-search.png");
     background-position: 5px center;
     background-repeat: no-repeat;
@@ -193,6 +303,19 @@ li.bulle:first-child{
 .clear{
     clear:both;
 }
+.light{
+    color:$lightGray;
+}
+.italic{
+    font-style: italic;
+}
+.huge{
+    font-size: 2.5em;
+}
+em{
+    font-style: italic;
+    color:$lightGray;
+}
 figure{
     width:150px;
     height:100px;
@@ -217,9 +340,9 @@ figure{
     width:100%;
     height:100%;
     border-top: 2px solid $gray;
-    background-color: rgba(100,100,100,0.1);
+    background-color: #FFF;
     overflow: hidden;
-    padding-top:40px;
+    margin-top: 65px;
     @include single-box-shadow(black,10px,10px,100px,1px);
     .down{
         position:absolute;
@@ -227,6 +350,9 @@ figure{
         height:30px;
         top:30%;
     }
+}
+#accueil #container{
+    margin-top: 0;
 }
 .main{
 
@@ -241,15 +367,21 @@ figure{
 .row{
     max-width: 100%;
 }
+
+q{
+    color:white;
+    font-size: 1.8em;
+    line-height: 1.3em;
+    font-weight: 400;
+}
 h2{
-    font-size: 34px;
-    margin-bottom: 1em;
+    font-size: 4em;
+    line-height: 1.2em;
     padding-bottom: 10px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 900;
     color:$main;
-    border-bottom: 1px dashed rgba(0,0,0,0.5);
-    @include single-text-shadow(black,1px,1px,0px);
+    /* @include single-text-shadow(black,1px,1px,0px); */
 }
 a{
     color:$main;
@@ -257,6 +389,7 @@ a{
 h3{
     font-size: 2em;
     border:0;
+    font-weight: 700;
     text-align: left;
     padding:0;
     margin:auto;
@@ -265,33 +398,44 @@ h3{
         border:0;
     }
 }
-p.text{
-    line-height: 1.8em;
-    margin-bottom: 1em;
 
-
-}
 nav.top-bar{
     padding:0 2%;
     position: fixed;
+    height:70px;
+    background:none repeat scroll 0 0 white;
+    @include single-box-shadow(#000000,0,0px,10px,0);
+    border-bottom:1px solid $lightGray;
+    .right{
+        background-color: 0;
+        margin-top:10px;
+    }
+    .title-area{
+        margin-top: 10px;
+    }
     li{
+
         &:hover{
-            background-color: rgba(100,100,100,0.6);
+            background-color: 0;
         }
         a{
 
-
+            font-weight: 300;
+            font-size: 1.1em;
+            opacity: 0.6;
             overflow: visible;
             text-decoration: none;
-            color:white;
+            color:black;
+            background-color: 0;
             &:hover{
                 text-decoration:none;
                 @include transition(all,0.3s,ease);
-
+                opacity:1;
             }
         }
     }
 }
+
 .button{
     margin-top: 0.5em;
     background-color:$main;
@@ -302,13 +446,56 @@ nav.top-bar{
 }
 #accueil .main>.row{
     margin-bottom: 1em;
-    padding-bottom: 1em;
     border-bottom: 1px solid $ultraLightGray;
+    padding:2em 0;
+}
+#accueil .row.projets{
+    margin-bottom: 3em;
+}
+#accueil .main>.row:last-child{
+    border:0;
 }
 .row.article{
     border-bottom: 1px solid $ultraLightGray;
     margin-bottom: 3em;
     padding-bottom: 2em;
+}
+.row.title{
+    padding: 2em 0;
+    margin-bottom: 3em;
+    border-bottom: 1px solid  $ultraLightGray;
+}
+.row.doc{
+    margin-top: 4em;
+    text-align: center;
+}
+.cv{
+    background-color: $main;
+    @include border-radius(50%);
+    width:80px;
+    height: 80px;
+    padding:10px;
+    border:10px solid lighten($main,20%);
+    display:inline-block;
+    a{
+        color:white;
+        font-weight: 700;
+        font-size: 1.2em;
+        text-decoration: none;
+        display:block;
+        width:100%;
+        height: 100%;
+        padding-top: 8px;
+        &:hover{
+             color:white;
+        font-weight: 700;
+        font-size: 1.2em;
+        text-decoration: none;
+        }
+        &:hover{
+            padding-bottom: 50px;
+        }
+    }
 }
 ul#imgTracker{
     padding:1% 0;
@@ -354,6 +541,59 @@ ul#imgTracker{
 }
 
 }
+.lastProjet{
+    @include horizontal-list();
+    text-align: center;
+    a{
+        z-index: 10;
+        display:block;
+        position:relative;
+    }
+    .overImg{
+       position:absolute;
+       display:block;
+       height:100%;
+       width:100%;
+       top:0;
+       left:0;
+       color:white;
+       padding:10% 2%;
+       font-size:110%;
+       line-height: 1.2em;
+       text-align: center;
+       overflow: hidden;
+       opacity:0;
+       @include transition(all 0.3s linear);
+
+
+       h4{
+        font-size: 2em;
+        font-weight: 700;
+        line-height: 1.5em;
+    }
+    p{
+        color:$gray;
+        line-height: 1.5em;
+        font-weight: 400;
+
+    }
+    
+}
+a:hover .overImg{
+   opacity:1;
+   z-index: 20;
+   background-color: rgba(255,255,255,0.8);
+   @include transition(all,0.2s,ease);
+
+
+
+}
+
+h4{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+}
 #imgTracker .overImg {
     position:absolute;
     display:block;
@@ -362,7 +602,6 @@ ul#imgTracker{
     top:0;
     left:0;
     z-index: 10;
-    opacity: 1;
     color:white;
     padding:10% 2%;
     font-size:110%;
@@ -396,12 +635,12 @@ input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:acti
 input{
     background-color: white;
 }
-input:valid,textarea:valid{
+/*input:valid,textarea:valid{
     background-color: lighten($main,45%);
 }
 input:invalid,textarea:invalid{
     background-color: lighten($false,45%);
-}
+}*/
 input[type="text"]{
     padding:0 0.5em;
 }
@@ -496,7 +735,7 @@ input[type="submit"]
             @include scale(1.2,1.2);
             @include single-box-shadow(black,2px,2px,30px,0px);
             @include transition(all,0.5s,ease-in);
-          }
+        }
         a{
             display:block;
             width:100%;
@@ -530,6 +769,9 @@ a{
     }
 
 }
+header{
+    margin-top: 70px;
+}
 .contact:first-child{
     margin-top: 20px;
 
@@ -554,6 +796,8 @@ i{
 article>p{
     line-height: 1.5em;
     text-align: justify;
+    font-size: 20px;
+    font-weight: 400;
     margin: auto;
 }
 .row.article article>p{
@@ -691,9 +935,7 @@ article {
 
 .no-rgba {
 
-    h2{
-        border-bottom:1px solid $main;
-    }
+
     .mainMenu 
     {
         li{
