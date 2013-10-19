@@ -94,10 +94,6 @@ $glowing-effect-color: $input-focus-border-color !default;
   background-color: $input-bg-color;
   font-family: $input-font-family;
   border: $input-border-width $input-border-style $input-border-color;
-  @if $experimental {
-    -webkit-box-shadow: $input-box-shadow;
-  }
-  box-shadow: $input-box-shadow;
   color: $input-font-color;
   display: block;
   font-size: $input-font-size;
@@ -112,7 +108,6 @@ $glowing-effect-color: $input-focus-border-color !default;
   // Basic focus styles
   &:focus {
     background: $input-focus-bg-color;
-    border-color: $input-focus-border-color;
     outline: none;
   }
 

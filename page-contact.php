@@ -81,12 +81,8 @@ if(isset($_POST['submitted'])) {
                <?php get_template_part('breadcrumbs'); ?>
     <div class="row">
         <h2><i class="icon-globe"></i>&nbsp;Me contacter? </h2>
-        <div class="large-4 columns">
-            <div id="gmap"></div>
-            <label for="map">Et vous, vous habitez où?</label>
-            <input type="text" name="map" value="" id="map" placeholder="Rue Basse-Montagne 40, 5100 Wépion, Belgique">
-        </div>
-        <section class="large-7  columns">
+     
+        <section class="large-5  columns">
          <h2 class="section">Formulaire de contact</h2>
 
          <?php if(isset($emailSent) && $emailSent == true) { ?>
@@ -110,7 +106,7 @@ if(isset($_POST['submitted'])) {
       <form action="<?php the_permalink(); ?>" id="contactForm" method="post">
           <fieldset>
            <div class="row">
-            <div class="large-6 columns">
+            <div class="large-12 columns">
              <label for="contactName">Nom</label>
              <input type="text" name="contactName" id="contactName" placeholder="Roland" value="<?php if(isset($_POST['contactName'])) echo $_POST['contactName'];?>" class="requiredField" />
              <?php if($nameError != '') { ?>
@@ -119,7 +115,7 @@ if(isset($_POST['submitted'])) {
          </div>
      </div>
      <div class="row">
-        <div class="large-6 columns">
+        <div class="large-12 columns">
 
          <label for="email">E-mail</label>
          <input type="email"  name="email" id="email" placeholder="vous@gmail.com" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email" />
@@ -129,13 +125,13 @@ if(isset($_POST['submitted'])) {
      </div>
  </div>
  <div class="row">
-    <div class="large-6 columns textarea"><label for="commentsText">Message</label>
-     <textarea name="comments" id="commentsText" placeholder="Entrer votre texte ici" style="min-width:300px; min-height:200px;" cols="100" rows="20" class="requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
+    <div class="large-12 columns textarea"><label for="commentsText">Message</label>
+     <textarea name="comments" id="commentsText" placeholder="Entrer votre texte ici" cols="100" rows="20" class="requiredField"><?php if(isset($_POST['comments'])) { if(function_exists('stripslashes')) { echo stripslashes($_POST['comments']); } else { echo $_POST['comments']; } } ?></textarea>
      <?php if($commentError != '') { ?>
      <span class="error"><?=$commentError;?></span> 
      <?php } ?>
  </div>
- <aside class="large-6 columns">
+ <aside class="large-12 columns">
              <?php // The Query
              $user_query = new WP_User_Query(  array( 'role' => 'Administrator' ) );
 
@@ -143,15 +139,41 @@ if(isset($_POST['submitted'])) {
              if ( ! empty( $user_query->results ) ) :
              	foreach ( $user_query->results as $user ) :?>
 
-             <h3 class="section">Mes informations personnelles</h3>
+             
+        <?php endforeach;
+        endif; ?>
+    </aside>
+</div>
+<div class="row">
+  <div class="large-12 columns textarea"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy">Recevoir une copie du message</label>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns textarea alert-box alert secondary "><label for="checking" class="screenReader">Pour envoyer ce formulaire, ne saisissez RIEN dans ce champ</label><input type="text" name="checking" id="checking" class="screenReader" value="<?php if(isset($_POST['checking']))  echo $_POST['checking'];?>" />
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns textarea"><input type="hidden" name="submitted" id="submitted" value="true" /><button class="button prefix" type="submit">Envoyer</button>
+  </div>
+</div>
+</fieldset>
+</form>
+</section>
+   <div class="large-4 columns">
+            <div id="gmap"></div>
+            <label for="map">Et vous, vous habitez où?</label>
+            <input type="text" name="map" value="" id="map" placeholder="Rue Basse-Montagne 40, 5100 Wépion, Belgique">
+        </div>
+<div class="large-3 columns">
+  <h3 class="section">Mes informations personnelles</h3>
              <address itemscope itemtype="http://schema.org/Person" class="vcard">
-             	<span class="name contact " itemprop="name"><i class="icon-user"></i>&nbsp;<a class="url fn" href="http://julien-roland.be"><?php echo $user->display_name ; ?></a></span>
-             	<meta itemprop="name" content="http://www.julien-roland.be"/>
-             	<span class="mail contact email" itemprop="email"><i class="icon-envelope-alt"></i>&nbsp;<?php echo $user->user_email ; ?></span>
-             	<span class="mail contact" itemprop="url"><i class="icon-globe"></i>&nbsp;<a href="<?php echo $user->user_url ; ?>"><?php echo $user->user_url ; ?></a></span>
+              <span class="name contact " itemprop="name"><i class="icon-user"></i>&nbsp;<a class="url fn" href="http://julien-roland.be"><?php echo $user->display_name ; ?></a></span>
+              <meta itemprop="name" content="http://www.julien-roland.be"/>
+              <span class="mail contact email" itemprop="email"><i class="icon-envelope-alt"></i>&nbsp;<?php echo $user->user_email ; ?></span>
+              <span class="mail contact" itemprop="url"><i class="icon-globe"></i>&nbsp;<a href="<?php echo $user->user_url ; ?>"><?php echo $user->user_url ; ?></a></span>
 
-             	<span class="tel contact" itemprop="telephone"><i class="icon-mobile-phone"></i>&nbsp;+32 495/94.51.93</span>
-             	<span class="adress contact" itemprop="homeLocation"><i class="icon-map-marker"></i>&nbsp;Namur (Belgique)</span>
+              <span class="tel contact" itemprop="telephone"><i class="icon-mobile-phone"></i>&nbsp;+32 495/94.51.93</span>
+              <span class="adress contact" itemprop="homeLocation"><i class="icon-map-marker"></i>&nbsp;Namur (Belgique)</span>
                 <meta class="adr hide">
                 <meta class="street-address" content="Rue Basse Montagne"/>
                 <meta class="locality" content="Namur"/>
@@ -163,25 +185,7 @@ if(isset($_POST['submitted'])) {
             <meta class="category" content="Infographiste">
 
         </address>
-        <?php endforeach;
-        endif; ?>
-    </aside>
 </div>
-<div class="row">
-  <div class="large-6 columns textarea"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy">Recevoir une copie du message</label>
-  </div>
-</div>
-<div class="row">
-  <div class="large-6 columns textarea alert-box alert secondary "><label for="checking" class="screenReader">Pour envoyer ce formulaire, ne saisissez RIEN dans ce champ</label><input type="text" name="checking" id="checking" class="screenReader" value="<?php if(isset($_POST['checking']))  echo $_POST['checking'];?>" />
-  </div>
-</div>
-<div class="row">
-  <div class="large-6 columns textarea"><input type="hidden" name="submitted" id="submitted" value="true" /><button class="button prefix" type="submit">Envoyer</button>
-  </div>
-</div>
-</fieldset>
-</form>
-</section>
 </div>
 </section>
 </section>
@@ -190,5 +194,5 @@ if(isset($_POST['submitted'])) {
     <?php wp_reset_postdata(); ?>
 <?php } ?>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&sensor=false"></script>
-  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>
-<?php get_footer(); ?>
+
+<?php get_footer(); ?>  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>

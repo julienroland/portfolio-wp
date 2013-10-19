@@ -53,7 +53,7 @@
   var getPositionSucces = function(oPosition){
     oMyPosition = oPosition.coords;
     fillInformations();
-    /* generateImageMap();*/
+     /*generateImageMap();*/
     updateGoogleMapPosition();
   };
   var getPositionError = function(oError){

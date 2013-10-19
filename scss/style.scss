@@ -7,7 +7,6 @@
 @include all-socialH-sprites;
 @import "social/*.png";
 @include all-social-sprites;
-
 body{
     font-family: Lato,Ubuntu,Helvetica,Arial;
     background-color: white;
@@ -134,6 +133,10 @@ nav{
     ul.dropdown{
 
     }
+}
+.large-8,.large-4,.large-6,.large-7
+{
+    color: $gray;
 }
 #commentform{
     p{
@@ -388,6 +391,7 @@ a{
 }
 h3{
     font-size: 2em;
+    line-height: 120%;
     border:0;
     font-weight: 700;
     text-align: left;
@@ -398,7 +402,9 @@ h3{
         border:0;
     }
 }
-
+nav.top-bar.expanded{
+    background-color: #FFF;
+}
 nav.top-bar{
     padding:0 2%;
     position: fixed;
@@ -444,15 +450,24 @@ nav.top-bar{
         background-color:darken($main,10%);
     }
 }
-#accueil .main>.row{
+#blog article img{
+    max-width: 200px;
+    max-height: 250px;
+}
+
+#accueil .main>.row,#blog .main>.row,#projets .main > .row{
     margin-bottom: 1em;
     border-bottom: 1px solid $ultraLightGray;
     padding:2em 0;
 }
+#single article img{
+    margin-bottom: 1em;
+    width:100%;
+}
 #accueil .row.projets{
     margin-bottom: 3em;
 }
-#accueil .main>.row:last-child{
+#accueil .main>.row:last-child,#blog .main>.row:last-child{
     border:0;
 }
 .row.article{
@@ -477,6 +492,9 @@ nav.top-bar{
     padding:10px;
     border:10px solid lighten($main,20%);
     display:inline-block;
+    &:hover,&:focus{
+        background-color: darken($main,10%);
+    }
     a{
         color:white;
         font-weight: 700;
@@ -487,27 +505,33 @@ nav.top-bar{
         height: 100%;
         padding-top: 8px;
         &:hover{
-             color:white;
-        font-weight: 700;
-        font-size: 1.2em;
-        text-decoration: none;
-        }
-        &:hover{
-            padding-bottom: 50px;
-        }
+         color:white;
+         font-weight: 700;
+         font-size: 1.2em;
+         text-decoration: none;
+     }
+     &:hover{
+        padding-bottom: 50px;
     }
+
+}
 }
 ul#imgTracker{
     padding:1% 0;
     text-align: center;
+    width:100%;
+
+    text-align: center;
     li
     { 
-        margin-bottom: 20px;
-        width:200px;
-        height: 200px;
+        margin-bottom: 10px;
+        margin-left: 1%;
+        height: 145px;
+        width:22%;
         overflow: hidden;
         position: relative;
         z-index: 1;
+        display:inline-block;
         img{
             display: inline;
             margin:auto;
@@ -517,15 +541,21 @@ ul#imgTracker{
             left:0;
             right:0;
             margin:auto;
+            max-width: 100%;
+            max-height:100%;
         }
 
     }
 
-    li:first-child{
+    li:first-child,li.focus{
 
-     height:300px;
-     width:300px;
-
+     min-width: 100px;
+     height: 300px;
+     width: 50%;
+     margin-right:1%;
+     float:left;
+     margin-bottom: 5em;
+     margin-left: 1px;
 
      img{
         position:absolute;
@@ -533,11 +563,17 @@ ul#imgTracker{
         bottom:0;
         left:0;
         right:0;
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
         display: inline;
         margin:auto;
     }
+}
+li.alternate{
+
+ float:right;
+
+
 }
 
 }
@@ -575,7 +611,7 @@ ul#imgTracker{
         color:$gray;
         line-height: 1.5em;
         font-weight: 400;
-
+        text-align: center;
     }
     
 }
@@ -595,24 +631,39 @@ h4{
 }
 }
 #imgTracker .overImg {
-    position:absolute;
+
+   position:absolute;
+   display:block;
+   height:100%;
+   width:100%;
+   top:0;
+   left:0;
+   color:white;
+   padding:10% 2%;
+   font-size:110%;
+   line-height: 1.2em;
+   text-align: center;
+   overflow: hidden;
+   opacity:0;
+   @include transition(all 0.3s linear);
+
+   a{
     display:block;
     height:100%;
     width:100%;
-    top:0;
-    left:0;
-    z-index: 10;
-    color:white;
-    padding:10% 2%;
-    font-size:110%;
-    line-height: 1.2em;
-    text-align: center;
-    overflow: hidden;
-    opacity:0;
-    @include transition(all 0.3s linear);
-    p{
-        text-align: center;
-    }
+    text-decoration: none;
+}
+h4{
+    font-size: 150%;
+    font-weight: 700;
+    line-height: 1.5em;
+}
+p{
+    color:$gray;
+    line-height: 1.5em;
+    font-weight: 400;
+
+}
 }
 #imgTracker li.th:hover .overImg{
     opacity: 1;
@@ -626,9 +677,9 @@ h4{
 #imgTracker li.th:hover {
 
  @include transition(transform 10000ms cubic-bezier(0, 0, .80, .90));
- background-color: $mainA;
+
 }
-input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:active{
+input:hover,textarea:hover,input:focus,textarea:focus,input:active,textarea:active,input:active,textarea:active{
     border:1px solid $main;
     @include single-box-shadow(lighten($main,40%),0,0,5px);
 }
@@ -640,53 +691,55 @@ input{
 }
 input:invalid,textarea:invalid{
     background-color: lighten($false,45%);
-}*/
-input[type="text"]{
-    padding:0 0.5em;
-}
-input[type="checkbox"]{
-    float:left;
-    margin:0;
-    margin-top: 5px;
-    margin-right: 1em;
-}
-#pagination{
-    @include horizontal-list();
-    text-align: center;
-    li{
-        display:inline-block;
-        float:none;
+    }*/
+    input[type="text"]{
+        padding:0 0.5em;
     }
-}
-#contactForm .row{
-    margin:1em 0;
-}
+    input[type="checkbox"]{
+        float:left;
+        margin:0;
+        margin-top: 5px;
+        margin-right: 1em;
+    }
+    #pagination{
+        @include horizontal-list();
+        text-align: center;
+        li{
+            display:inline-block;
+            float:none;
+        }
+    }
+    #contactForm .row{
+        margin:1em 0;
+    }
 
-input[type="submit"]
-{
-    background-color: $main;
-    border:1px solid darken($main,15%);
-    &:hover{
-        background-color:darken($main,10%);
+    input[type="submit"]
+    {
+        background-color: $main;
+        border:1px solid darken($main,15%);
+        &:hover{
+            background-color:darken($main,10%);
+        }
     }
-}
-#gmap{
-    display:block;
-    height: 100%;
-    width:100%;
-}
-.top-bar ul .name{
-    margin-right:1em;
-}
-.section{
-    text-indent: -9999px;
-    border:0;
-    margin:0;
-    padding:0;
-    height:0;
-    width:0;
-    position: absolute;
-}
+    #gmap{
+        display:block;
+        height: 100%;
+        width:100%;
+        min-width: 100px;
+        min-height: 300px;
+    }
+    .top-bar ul .name{
+        margin-right:1em;
+    }
+    .section{
+        text-indent: -9999px;
+        border:0;
+        margin:0;
+        padding:0;
+        height:0;
+        width:0;
+        position: absolute;
+    }
 /*#imgTracker li:hover{
     @include rotateY(180deg,400px);
     @include transition(all,2s,linear);
@@ -829,9 +882,11 @@ textarea{
 }
 ol.comments{
     border:1px solid $ultraLightGray;
-    width:60%;
     padding:1em 0.5em;
     margin:1em auto;
+    p{
+        text-align: justify;
+    }
     li{
         display:block;
         width:80%;
@@ -840,7 +895,6 @@ ol.comments{
         border-bottom: 1px solid $ultraLightGray;
 
         .comment-header{
-            background-color: $comment-fond;
             padding:1em;
             margin-bottom: 0.5em;
             img{
@@ -935,11 +989,28 @@ article {
 
 .no-rgba {
 
-
+.title-area{
+    float:left;
+}
+.top-bar-section{
+    float:right;
+}
+    .top-bar{
+        border-bottom: 1px solid black;
+        .menu-icon.toggle-topbar{
+            color:black;
+        }
+        li{
+            a{
+                color:black;
+            }
+        }
+        
+    }
     .mainMenu 
     {
         li{
-
+            
 
            &:hover{
                background-color: black; 
@@ -947,7 +1018,7 @@ article {
        }
 
        a{
-        color:white;
+        color:black;
 
         &:hover{
             color:$main;
@@ -970,6 +1041,13 @@ article {
     }
     .large-7{
         width:58.3333%;
+    }
+}
+.no-backgroundsize{
+    .image{
+        min-width: 100%;
+        min-height: 100%;
+        background-image: image-url('logoIE.jpg');
     }
 }
 @import "responsive";

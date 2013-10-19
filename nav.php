@@ -10,8 +10,8 @@
         <a href="<?php echo home_url(); ?>"><i class="icon-home"></i>&nbsp;Revenir à l'accueil</a>
       </li>
       <li>
-        <?php
-      get_search_form(); ?>
+        <?php/*
+      get_search_form(); */ ?>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>

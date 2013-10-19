@@ -3050,7 +3050,7 @@ button.large,
 
 /* Standard Forms */
 
-/* line 264, ../scss/foundation/components/_forms.scss */
+/* line 259, ../scss/foundation/components/_forms.scss */
 
 form {
   margin: 0 0 1em;
@@ -3104,7 +3104,7 @@ form .row textarea.columns {
 
 /* Label Styles */
 
-/* line 270, ../scss/foundation/components/_forms.scss */
+/* line 265, ../scss/foundation/components/_forms.scss */
 
 label {
   font-size: 0.875em;
@@ -3116,21 +3116,21 @@ label {
   /* Styles for required inputs */
 }
 
-/* line 271, ../scss/foundation/components/_forms.scss */
+/* line 266, ../scss/foundation/components/_forms.scss */
 
 label.right {
   float: none;
   text-align: right;
 }
 
-/* line 272, ../scss/foundation/components/_forms.scss */
+/* line 267, ../scss/foundation/components/_forms.scss */
 
 label.inline {
   margin: 0 0 1em 0;
   padding: 0.625em 0;
 }
 
-/* line 274, ../scss/foundation/components/_forms.scss */
+/* line 269, ../scss/foundation/components/_forms.scss */
 
 label small {
   text-transform: capitalize;
@@ -3139,7 +3139,7 @@ label small {
 
 /* Attach elements to the beginning or end of an input */
 
-/* line 282, ../scss/foundation/components/_forms.scss */
+/* line 277, ../scss/foundation/components/_forms.scss */
 
 .prefix,
 .postfix {
@@ -3160,7 +3160,7 @@ label small {
 
 /* Adjust padding, alignment and radius if pre/post element is a button */
 
-/* line 285, ../scss/foundation/components/_forms.scss */
+/* line 280, ../scss/foundation/components/_forms.scss */
 
 .postfix.button {
   padding-left: 0;
@@ -3171,7 +3171,7 @@ label small {
   line-height: 2.125em;
 }
 
-/* line 286, ../scss/foundation/components/_forms.scss */
+/* line 281, ../scss/foundation/components/_forms.scss */
 
 .prefix.button {
   padding-left: 0;
@@ -3182,7 +3182,7 @@ label small {
   line-height: 2.125em;
 }
 
-/* line 288, ../scss/foundation/components/_forms.scss */
+/* line 283, ../scss/foundation/components/_forms.scss */
 
 .prefix.button.radius {
   border-radius: 0;
@@ -3190,7 +3190,7 @@ label small {
   border-top-left-radius: 3px;
 }
 
-/* line 289, ../scss/foundation/components/_forms.scss */
+/* line 284, ../scss/foundation/components/_forms.scss */
 
 .postfix.button.radius {
   border-radius: 0;
@@ -3198,7 +3198,7 @@ label small {
   border-bottom-right-radius: 3px;
 }
 
-/* line 290, ../scss/foundation/components/_forms.scss */
+/* line 285, ../scss/foundation/components/_forms.scss */
 
 .prefix.button.round {
   border-radius: 0;
@@ -3206,7 +3206,7 @@ label small {
   border-top-left-radius: 1000px;
 }
 
-/* line 291, ../scss/foundation/components/_forms.scss */
+/* line 286, ../scss/foundation/components/_forms.scss */
 
 .postfix.button.round {
   border-radius: 0;
@@ -3216,7 +3216,7 @@ label small {
 
 /* Separate prefix and postfix styles when on span or label so buttons keep their own */
 
-/* line 294, ../scss/foundation/components/_forms.scss */
+/* line 289, ../scss/foundation/components/_forms.scss */
 
 span.prefix,
 label.prefix {
@@ -3226,7 +3226,7 @@ label.prefix {
   color: #333333;
 }
 
-/* line 295, ../scss/foundation/components/_forms.scss */
+/* line 290, ../scss/foundation/components/_forms.scss */
 
 span.prefix.radius,
 label.prefix.radius {
@@ -3235,7 +3235,7 @@ label.prefix.radius {
   border-top-left-radius: 3px;
 }
 
-/* line 297, ../scss/foundation/components/_forms.scss */
+/* line 292, ../scss/foundation/components/_forms.scss */
 
 span.postfix,
 label.postfix {
@@ -3245,7 +3245,7 @@ label.postfix {
   color: #333333;
 }
 
-/* line 298, ../scss/foundation/components/_forms.scss */
+/* line 293, ../scss/foundation/components/_forms.scss */
 
 span.postfix.radius,
 label.postfix.radius {
@@ -3256,7 +3256,7 @@ label.postfix.radius {
 
 /* Input groups will automatically style first and last elements of the group */
 
-/* line 304, ../scss/foundation/components/_forms.scss */
+/* line 299, ../scss/foundation/components/_forms.scss */
 
 .input-group.radius > *:first-child,
 .input-group.radius > *:first-child * {
@@ -3264,7 +3264,7 @@ label.postfix.radius {
   border-top-left-radius: 3px;
 }
 
-/* line 307, ../scss/foundation/components/_forms.scss */
+/* line 302, ../scss/foundation/components/_forms.scss */
 
 .input-group.radius > *:last-child,
 .input-group.radius > *:last-child * {
@@ -3272,7 +3272,7 @@ label.postfix.radius {
   border-bottom-right-radius: 3px;
 }
 
-/* line 312, ../scss/foundation/components/_forms.scss */
+/* line 307, ../scss/foundation/components/_forms.scss */
 
 .input-group.round > *:first-child,
 .input-group.round > *:first-child * {
@@ -3280,7 +3280,7 @@ label.postfix.radius {
   border-top-left-radius: 1000px;
 }
 
-/* line 315, ../scss/foundation/components/_forms.scss */
+/* line 310, ../scss/foundation/components/_forms.scss */
 
 .input-group.round > *:last-child,
 .input-group.round > *:last-child * {
@@ -3290,7 +3290,7 @@ label.postfix.radius {
 
 /* We use this to get basic styling on all basic form elements */
 
-/* line 335, ../scss/foundation/components/_forms.scss */
+/* line 330, ../scss/foundation/components/_forms.scss */
 
 input[type="text"],
 input[type="password"],
@@ -3311,8 +3311,6 @@ textarea {
   background-color: white;
   font-family: inherit;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   display: block;
   font-size: 0.875em;
@@ -3348,7 +3346,7 @@ textarea:focus {
   border-color: #999999;
 }
 
-/* line 113, ../scss/foundation/components/_forms.scss */
+/* line 109, ../scss/foundation/components/_forms.scss */
 
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -3365,11 +3363,10 @@ input[type="time"]:focus,
 input[type="url"]:focus,
 textarea:focus {
   background: #fafafa;
-  border-color: #999999;
   outline: none;
 }
 
-/* line 120, ../scss/foundation/components/_forms.scss */
+/* line 115, ../scss/foundation/components/_forms.scss */
 
 input[type="text"][disabled],
 input[type="password"][disabled],
@@ -3390,7 +3387,7 @@ textarea[disabled] {
 
 /* Adjust margin for form elements below */
 
-/* line 349, ../scss/foundation/components/_forms.scss */
+/* line 344, ../scss/foundation/components/_forms.scss */
 
 input[type="file"],
 input[type="checkbox"],
@@ -3401,7 +3398,7 @@ select {
 
 /* Normalize file input width */
 
-/* line 354, ../scss/foundation/components/_forms.scss */
+/* line 349, ../scss/foundation/components/_forms.scss */
 
 input[type="file"] {
   width: 100%;
@@ -3409,7 +3406,7 @@ input[type="file"] {
 
 /* We add basic fieldset styling */
 
-/* line 359, ../scss/foundation/components/_forms.scss */
+/* line 354, ../scss/foundation/components/_forms.scss */
 
 fieldset {
   border: solid 1px #dddddd;
@@ -3417,7 +3414,7 @@ fieldset {
   margin: 1.125em 0;
 }
 
-/* line 221, ../scss/foundation/components/_forms.scss */
+/* line 216, ../scss/foundation/components/_forms.scss */
 
 fieldset legend {
   font-weight: bold;
@@ -3429,7 +3426,7 @@ fieldset legend {
 
 /* Error Handling */
 
-/* line 366, ../scss/foundation/components/_forms.scss */
+/* line 361, ../scss/foundation/components/_forms.scss */
 
 [data-abide] .error small.error,
 [data-abide] span.error,
@@ -3444,14 +3441,14 @@ fieldset legend {
   color: white;
 }
 
-/* line 369, ../scss/foundation/components/_forms.scss */
+/* line 364, ../scss/foundation/components/_forms.scss */
 
 [data-abide] span.error,
 [data-abide] small.error {
   display: none;
 }
 
-/* line 371, ../scss/foundation/components/_forms.scss */
+/* line 366, ../scss/foundation/components/_forms.scss */
 
 span.error,
 small.error {
@@ -3465,7 +3462,7 @@ small.error {
   color: white;
 }
 
-/* line 377, ../scss/foundation/components/_forms.scss */
+/* line 372, ../scss/foundation/components/_forms.scss */
 
 .error input,
 .error textarea,
@@ -3475,7 +3472,7 @@ small.error {
   margin-bottom: 0;
 }
 
-/* line 236, ../scss/foundation/components/_forms.scss */
+/* line 231, ../scss/foundation/components/_forms.scss */
 
 .error input:focus,
 .error textarea:focus,
@@ -3484,14 +3481,14 @@ small.error {
   border-color: #999999;
 }
 
-/* line 383, ../scss/foundation/components/_forms.scss */
+/* line 378, ../scss/foundation/components/_forms.scss */
 
 .error label,
 .error label.error {
   color: #c60f13;
 }
 
-/* line 388, ../scss/foundation/components/_forms.scss */
+/* line 383, ../scss/foundation/components/_forms.scss */
 
 .error > small,
 .error small.error {
@@ -3505,13 +3502,13 @@ small.error {
   color: white;
 }
 
-/* line 392, ../scss/foundation/components/_forms.scss */
+/* line 387, ../scss/foundation/components/_forms.scss */
 
 .error span.error-message {
   display: block;
 }
 
-/* line 398, ../scss/foundation/components/_forms.scss */
+/* line 393, ../scss/foundation/components/_forms.scss */
 
 input.error,
 textarea.error {
@@ -3520,7 +3517,7 @@ textarea.error {
   margin-bottom: 0;
 }
 
-/* line 236, ../scss/foundation/components/_forms.scss */
+/* line 231, ../scss/foundation/components/_forms.scss */
 
 input.error:focus,
 textarea.error:focus {
@@ -3528,21 +3525,21 @@ textarea.error:focus {
   border-color: #999999;
 }
 
-/* line 403, ../scss/foundation/components/_forms.scss */
+/* line 398, ../scss/foundation/components/_forms.scss */
 
 .error select {
   border-color: #c60f13;
   background-color: rgba(198, 15, 19, 0.1);
 }
 
-/* line 236, ../scss/foundation/components/_forms.scss */
+/* line 231, ../scss/foundation/components/_forms.scss */
 
 .error select:focus {
   background: #fafafa;
   border-color: #999999;
 }
 
-/* line 407, ../scss/foundation/components/_forms.scss */
+/* line 402, ../scss/foundation/components/_forms.scss */
 
 label.error {
   color: #c60f13;
@@ -8506,7 +8503,7 @@ form.custom .error .custom.dropdown {
   margin-bottom: 0;
 }
 
-/* line 236, ../scss/foundation/components/_forms.scss */
+/* line 231, ../scss/foundation/components/_forms.scss */
 
 form.custom .error .custom.dropdown:focus {
   background: #fafafa;

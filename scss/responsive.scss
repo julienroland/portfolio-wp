@@ -1,9 +1,28 @@
 @import "compass";
 @import "foundation/variables";
 @import "_variables";
+@media (max-width:1036px){
+
+}
+@media (min-width: 768px) and (max-width: 1445px) { 
+    .row .large-6.large-offset-1{
+        width:100%;
+        margin-left: 0;
+    }
+    article.large-7{
+        width:70%;
+    }
+    nav.top-bar .right{
+      
+        margin-top: 0;
+    }
+    .top-bar-section .right{
+          width:auto;
+            margin-top: 0;
+    }
+}
 @media (max-width: 767px) {
     body{
-        font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
         font-size: 14px;
     }
     body.f-topbar-fixed{
@@ -21,21 +40,6 @@
     }
     .button{
         margin-top: 0;
-    }
-    .large-4 > img.track, .large-4{
-    display:none;
-    }
-    ul#imgTracker li:first-child{
-    width:60%;
-    height:300px;
-    }
-      ul#imgTracker li{
-    width:30%;
-    height:150px;
-    margin-bottom: 5px;
-    }
-     ul#imgTracker li+li+li+li{
-
     }
     ol.comments{
         width:100%;
@@ -80,15 +84,15 @@
             left:0;
         }
         .top-bar-section{
-           display:none;
-       }
-   }
-   .top-bar.expanded
-   {
+         display:none;
+     }
+ }
+ .top-bar.expanded
+ {
     background-color: black;
     .top-bar-section{
-       display:block;
-   }
+     display:block;
+ }
 }
 nav.expanded ul li{
     float:left;
@@ -99,4 +103,53 @@ nav.expanded ul li{
 
     }
 }
+.main{
+    width:100%;
+}
+.top-bar .toggle-topbar.menu-icon{
+    a{
+        color:gray;
+    }
+}
+.columns{
+    margin-bottom: 1em;
+}
+
+.moreArticle{
+    text-align: center;
+    .date,.light{
+        text-align: center;
+    }
+}
+h3{
+    text-align: center;
+}
+}
+
+
+@media (max-width:485px){
+    .main{
+        width:100%;
+    }
+   ul#imgTracker.inline-list{
+    width:100%;
+    margin:auto;
+
+    overflow: visible;
+     li:first-child,li.focus{
+        width:100%;
+            margin-bottom: 2%;
+            height:100px;
+    }
+    li{
+        width:24%;
+        height: 50px;
+    }
+    .overImg{
+        p{
+            text-align: center;
+        }
+    }
+    }
+
 }

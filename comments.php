@@ -27,6 +27,8 @@ $oddcomment = 'comment';
         <h3 class="subheader" id="comments"><i class="icon-comments"></i>&nbsp;<?php comments_number('Pas de commentaire', 'Un commentaire', '% commentaires' );?></h3>
     </div>
 </div>
+<div class="row">
+    <div class="large-8 large-centered columns">
 <ol class="comments" id="goComments">
     <?php foreach ($comments as $comment) : ?>
 
@@ -36,13 +38,16 @@ $oddcomment = 'comment';
           <?php  echo get_avatar( get_the_author_id(), $size = '60' );?>
           <div class="vcard">
            <p class="comment-name" ><?php comment_author_link() ?></p> <a class="comment-date" href="#comment-<?php comment_ID() ?>" title=""><?php comment_date('l j F Y') ?> <?php _e('&agrave;');?> <?php comment_time('G:i') ?></a> <?php edit_comment_link('Modifier le commentaire','',''); ?>
+           <?php  echo get_comment_reply_link(); ?>
            <?php if ($comment->comment_approved == '0') : ?>
            <em><?php _e('Votre commentaire est en cours de mod&eacute;ration'); ?></em>
        <?php endif; ?>
    </div>
 </div>
 
-<?php comment_text() ?>
+<?php comment_text(); ?>
+
+
 </li>
 
 <?php /* Changes every other comment to a different class */
@@ -52,20 +57,21 @@ else $oddcomment = 'comment';
 
 <?php endforeach; /* end for each comment */ ?>
 </ol>
-
+</div>
+</div>
 <?php else : // this is displayed if there are no comments so far ?>
-    <?php echo '<p class="noComment">Ya pas de commentaire ...</p>';?>
+    <?php echo '<p class="noComment">Y\'a pas de commentaire ...</p>';?>
     <?php if ('open' == $post->comment_status) : ?>
     <!-- If comments are open, but there are no comments. -->
 <?php else : // comments are closed ?>
 
     <!-- If comments are closed. -->
-    <p class="nocomments">Les commentaires sont fermŽs !</p>
+    <p class="nocomments">Les commentaires sont fermés !</p>
 
 <?php endif; ?>
 <?php endif; ?>
 <div class="row comments">
-    <div class="large-7 large-centered columns">
+    <div class="large-8 large-centered columns">
         <?php if ('open' == $post->comment_status) : ?>
 
         <?php if ( get_option('comment_registration') && !$user_ID ) : ?>

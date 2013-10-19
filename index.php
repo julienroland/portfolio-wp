@@ -65,7 +65,7 @@ get_header();
 
       <div class="large-3 columns moreArticle">
         <i class="icon-calendar huge"></i>
-        <p class="date "><time datetime="<?php the_time(get_option('date_format')); ?>">Posté le <em><?php the_time(get_option('date_format')); ?></em>&nbsp; à&nbsp;<em><?php the_time(); ?></em></time></p>
+        <p class="date "><time itemprop="datePublished" datetime="<?php the_time(get_option('date_format')); ?>">Posté le <em><?php the_time(get_option('date_format')); ?></em>&nbsp; à&nbsp;<em><?php the_time(); ?></em></time></p>
         <p class="light italic"><i class="icon-comments"></i> <?php comments_number('Pas de commentaire', 'Un commentaire', '% commentaires' );?></p>
       </div>
       <article class="large-7 large-uncentered columns">

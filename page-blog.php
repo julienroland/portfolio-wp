@@ -26,7 +26,7 @@ blog
           <?php the_post_thumbnail(); ?>
           <?php the_excerpt(); ?>
         </span>
-        <a class="small button radius" href="<?php the_permalink(); ?>">Lire la suite</a>
+        <a href="<?php the_permalink(); ?>">Lire la suite</a>
       </article>
     </div>
 

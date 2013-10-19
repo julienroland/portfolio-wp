@@ -31,7 +31,7 @@ Template Name: Qui
 <?php wp_reset_postdata(); ?>
 <div class="row doc">
   <div class="large-4 large-centered columns">
-   <div class="cv animated bounce"><a href="">CV</a></div>
+   <div class="cv animated bounce"><a href="http://julien-roland.be/cv/">CV</a></div>
  </div>
 </div>
 </section>
