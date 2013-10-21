@@ -6,9 +6,10 @@ Template Name: index
 get_header();
 ?>
 <body id="accueil">
-  <h2 class="section">Portfolio de Julien Roland webdesigner</h2>
+  <h1 role="heading" aria-level="1" class="section">Portfolio de Julien Roland web designer</h1>
   <header>
     <div class="social">
+      <h3 class="section" role="heading" aria-level="3">Retrouvez moi sur la toile !</h3>
       <ul>
         <li class="facebook animated bounce"><a href="" title="Aller sur mon compte Facebook">Mon Facebook</a></li>
         <li class="gmail  animated bounce"><a href="" title="M'envoyer un mail sur mon addresse Gmail">M'envoyer un mail</a></li>
@@ -18,18 +19,12 @@ get_header();
       </ul>
     </div>
     <div class="image">
-      <!--<div class="presentation"><p>Julien Roland</p>
-      <p class="portfolio">PortFolio</p></div>-->
-       <!-- <nav class="ban">
-          <h2 class="section">Menu principal</h2>
-          <?php get_template_part('navHome'); ?>
-        </div>
-      </nav>-->
+    </div>
     </header>
     <section id="container">
-      <h1 class="section">Contenu principal</h1>
+      <h2 role="heading" aria-level="2" class="section">Contenu principal</h2>
       <?php get_template_part('nav'); ?>
-      <section class="main">
+      <section class="main" role="main" id="content">
         <?php get_template_part('breadcrumbs'); ?>
         <div class="row">
           <div class="large-6 large-offset-1 columns">
@@ -54,7 +49,7 @@ get_header();
     </div>
     <div class="row">
       <div class="large-6 large-offset-1 columns">
-        <h2>Mes derniers post</h2>
+        <h2 role="heading" aria-level="2">Mes derniers post</h2>
       </div>
     </div>
     <?php if(have_posts()):?>
@@ -62,7 +57,6 @@ get_header();
     <?php query_posts($args); ?>
     <?php while(have_posts()): the_post();?>
     <div class="row ">
-
       <div class="large-3 columns moreArticle">
         <i class="icon-calendar huge"></i>
         <p class="date "><time itemprop="datePublished" datetime="<?php the_time(get_option('date_format')); ?>">Posté le <em><?php the_time(get_option('date_format')); ?></em>&nbsp; à&nbsp;<em><?php the_time(); ?></em></time></p>

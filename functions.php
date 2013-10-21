@@ -42,7 +42,7 @@ function create_post_type() {
             'has_archive' => true,
             'show_in_menu'=> true,
             'show_in_nav_menus' => true,
-            'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields')
+            'supports' => array('title','editor','author','thumbnail','excerpt','custom-fields','pagination')
             )
         );
 }

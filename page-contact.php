@@ -52,13 +52,13 @@ if(isset($_POST['submitted'])) {
 			$subject = 'Formulaire de contact de '.$name;
 			$sendCopy = trim($_POST['sendCopy']);
 			$body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
-			$headers = 'De : mon site <'.$emailTo.'>' . "\r\n" . 'R&eacute;pondre &agrave; : ' . $email;
+			$headers = 'De : mon site <'.$emailTo.'>' . "\r\n" . 'Répondre à : ' . $email;
 			
 			mail($emailTo, $subject, $body, $headers);
 
 			if($sendCopy == true) {
 				$subject = 'Formulaire de contact';
-				$headers = 'De : <noreply@somedomain.com>';
+				$headers = 'De : <noreply@roland.com>';
 				mail($email, $subject, $body, $headers);
 			}
 
@@ -73,23 +73,23 @@ if(isset($_POST['submitted'])) {
 
 
 <body id="top">
-	<h1 class="section">Contactez-moi</h1>
+	<h1 role="heading" aria-level="1" class="section">Tout ce qu'il faut pour me contacter</h1>
 	<section id="container" >
-		<h1 class="section">Contenu principal</h1>
+		<h2 role="heading" aria-level="2" class="section">Contenu principal</h2>
      <?php get_template_part('nav'); ?>
-     <section class="main">
+     <section class="main" role="main">
                <?php get_template_part('breadcrumbs'); ?>
     <div class="row">
         <h2><i class="icon-globe"></i>&nbsp;Me contacter? </h2>
      
-        <section class="large-5  columns">
-         <h2 class="section">Formulaire de contact</h2>
+        <section class="large-5 columns" role="form">
+         <h2 role="heading" aria-level="2" class="section">Formulaire de contact</h2>
 
          <?php if(isset($emailSent) && $emailSent == true) { ?>
 
          <div class="thanks">
-          <h1>Merci, <?=$name;?></h1>
-          <p>Votre e-mail a &eacute;t&eacute; envoy&eacute; avec succ&egrave;s. Vous recevrez une r&eacute;ponse sous peu.</p>
+          <h1><?php  echo('Merci,').$name;?></h1>
+          <p><?php  echo('Votre e-mail a &eacute;t&eacute; envoy&eacute; avec succ&egrave;s. Vous recevrez une r&eacute;ponse sous peu.');?></p>
       </div>
 
       <?php } else { ?>
@@ -116,7 +116,6 @@ if(isset($_POST['submitted'])) {
      </div>
      <div class="row">
         <div class="large-12 columns">
-
          <label for="email">E-mail</label>
          <input type="email"  name="email" id="email" placeholder="vous@gmail.com" value="<?php if(isset($_POST['email']))  echo $_POST['email'];?>" class="requiredField email" />
          <?php if($emailError != '') { ?>
@@ -131,7 +130,8 @@ if(isset($_POST['submitted'])) {
      <span class="error"><?=$commentError;?></span> 
      <?php } ?>
  </div>
- <aside class="large-12 columns">
+ <div class="large-12 columns">
+
              <?php // The Query
              $user_query = new WP_User_Query(  array( 'role' => 'Administrator' ) );
 
@@ -142,7 +142,7 @@ if(isset($_POST['submitted'])) {
              
         <?php endforeach;
         endif; ?>
-    </aside>
+    </div>
 </div>
 <div class="row">
   <div class="large-12 columns textarea"><input type="checkbox" name="sendCopy" id="sendCopy" value="true"<?php if(isset($_POST['sendCopy']) && $_POST['sendCopy'] == true) echo ' checked="checked"'; ?> /><label for="sendCopy">Recevoir une copie du message</label>
@@ -165,7 +165,7 @@ if(isset($_POST['submitted'])) {
             <input type="text" name="map" value="" id="map" placeholder="Rue Basse-Montagne 40, 5100 Wépion, Belgique">
         </div>
 <div class="large-3 columns">
-  <h3 class="section">Mes informations personnelles</h3>
+  <h3 aria-level="3" role="heading" class="section">Mes informations personnelles</h3>
              <address itemscope itemtype="http://schema.org/Person" class="vcard">
               <span class="name contact " itemprop="name"><i class="icon-user"></i>&nbsp;<a class="url fn" href="http://julien-roland.be"><?php echo $user->display_name ; ?></a></span>
               <meta itemprop="name" content="http://www.julien-roland.be"/>
@@ -195,4 +195,5 @@ if(isset($_POST['submitted'])) {
 <?php } ?>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDHJ3p-sn1Y5tJGrzH9MF5cbR5sdsDmhfg&sensor=false"></script>
 
-<?php get_footer(); ?>  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>
+<?php get_footer(); ?>  
+<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>

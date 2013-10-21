@@ -6,15 +6,15 @@ Template Name: Blog
 <?php get_header(); ?>
 
 <body id="blog">
-  <h1 class="section">Voici mon blog</h1>
+  <h1 role="heading" aria-level="1" class="section">Voici mon blog</h1>
   <section id="container" >
-    <h1 class="section">Contenu principal de mon blog</h1>
+    <h2 role="heading" aria-level="2" class="section">Contenu principal de mon blog</h2>
     <?php get_template_part('nav'); ?>
     <section role="main" class="main">
       <?php get_template_part('breadcrumbs'); ?>
       <div class="row">
         <div class="large-6 large-offset-1 columns">
-          <h2><i class="icon-comments"></i>&nbsp;Mon blog </h2> 
+          <h2 role="heading" aria-level="2"><i class="icon-comments"></i>&nbsp;Mon blog </h2> 
         </div>
       </div>
       <?php $i=0; ?>
@@ -38,7 +38,7 @@ Template Name: Blog
           </div>
     
           <article class="large-7 large-uncentered columns">
-            <h3><?php the_title();?></h3>
+            <h3 role="heading" aria-level="3"><?php the_title();?></h3>
             <span> <?php the_excerpt(); ?></span> 
             <a href="<?php the_permalink(); ?>">Lire la suite</a>
           </article>
@@ -53,16 +53,18 @@ Template Name: Blog
           </div>
     
           <article class="large-7 large-uncentered columns">
-            <h3><?php the_title();?></h3>
+            <h3 role="heading" aria-level="3"><?php the_title();?></h3>
             <span> <?php the_post_thumbnail(); ?><?php the_excerpt(); ?></span> 
             <a href="<?php the_permalink(); ?>">Lire la suite</a>
           </article>
           </div>
         <?php endif; ?>
       <?php endwhile; ?>
-
+    <section role="navigation">
+      <h4 role="heading" aria-level="4" class="section">Changer de page</h4>
       <?php  
       pagination($wp_query); ?> 
+    </section>
       <?php else: 
       echo wpautop( 'Aucun post disponible' );
       endif; ?>
