@@ -346,7 +346,6 @@ figure{
     background-color: #FFF;
     overflow: hidden;
     margin-top: 65px;
-    @include single-box-shadow(black,10px,10px,100px,1px);
     .down{
         position:absolute;
         width:150px;
@@ -407,7 +406,7 @@ nav.top-bar.expanded{
 }
 nav.top-bar{
     padding:0 2%;
-    position: relative;
+    position: fixed;
     height:70px;
     background:none repeat scroll 0 0 white;
     @include single-box-shadow(#000000,0,0px,10px,0);
