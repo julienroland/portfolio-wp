@@ -20,7 +20,7 @@ Template Name: Qui
      </div>
      <div class="row ">
 
-      <div class="large-4 columns"><img src="<?php bloginfo('template_directory');?>/img/imac.png" alt=""></div>
+      <div class="large-4 columns"><img src="<?php bloginfo('template_directory');?>/img/imac.png" alt="Julien roland"></div>
       <article class="large-8  columns" itemprop="text" itemscope itemtype="http://schema.org/Person" >
         <h4 aria-level="4" role="heading" class="section">Je m'appel Julien Roland</h4>
         <?php the_content(); ?>
@@ -31,7 +31,7 @@ Template Name: Qui
 <?php wp_reset_postdata(); ?>
 <div class="row doc">
   <div class="large-4 large-centered columns">
-   <div class="cv animated bounce"><a href="http://julien-roland.be/cv/">CV</a></div>
+   <div class="cv animated bounce"><a href="http://julien-roland.be/cv/" title="Voir mon Curriculum Vitae">CV</a></div>
  </div>
 </div>
 </section>

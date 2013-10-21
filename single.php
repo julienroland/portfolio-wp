@@ -12,7 +12,7 @@
       <h2 aria-level="2" role="heading"><?php the_title(); ?></h2>
       <div class="row head">
         <div class="infosDate"  itemtype="http://schema.org/Person">
-           <p class="date"><time itemprop="datePublished" datetime="<?php the_time(get_option('date_format')); ?>">Posté le <em><?php the_time(get_option('date_format')); ?></em>&nbsp; à&nbsp;<em><?php the_time(); ?></em></time></p><p>par<a itemprop="author" href=""><?php the_author(); ?></a></p>
+           <p class="date"><time itemprop="datePublished" datetime="<?php the_time(get_option('date_format')); ?>">Posté le <em><?php the_time(get_option('date_format')); ?></em>&nbsp; à&nbsp;<em><?php the_time(); ?></em></time></p><p>par<em itemprop="author"><?php the_author(); ?></em></p>
        </div>
      </div>
 

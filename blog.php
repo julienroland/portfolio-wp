@@ -40,7 +40,7 @@ Template Name: Blog
           <article class="large-7 large-uncentered columns">
             <h3 role="heading" aria-level="3"><?php the_title();?></h3>
             <span> <?php the_excerpt(); ?></span> 
-            <a href="<?php the_permalink(); ?>">Lire la suite</a>
+            <a href="<?php the_permalink(); ?>" title="Voir la suite de l'article">Lire la suite</a>
           </article>
           </div>
         <?php else: ?>
@@ -55,7 +55,7 @@ Template Name: Blog
           <article class="large-7 large-uncentered columns">
             <h3 role="heading" aria-level="3"><?php the_title();?></h3>
             <span> <?php the_post_thumbnail(); ?><?php the_excerpt(); ?></span> 
-            <a href="<?php the_permalink(); ?>">Lire la suite</a>
+            <a href="<?php the_permalink(); ?>" title="Voir la suite de l'article">Lire la suite</a>
           </article>
           </div>
         <?php endif; ?>

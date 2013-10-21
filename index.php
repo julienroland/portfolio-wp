@@ -40,7 +40,7 @@ get_header();
 
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"> <?php the_post_thumbnail('full'); ?><div class="overImg"><h4><?php the_title(); ?></h4> <p><?php
               echo get_post(get_post_thumbnail_id())->post_excerpt; ?></p></div></a>
-                    <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                    <h4><a href="<?php the_permalink(); ?>" title="Voir le projet en entier"><?php the_title(); ?></a></h4>
             </div>
           <?php endwhile;?>
           <?php wp_reset_postdata(); ?> 
@@ -67,7 +67,7 @@ get_header();
         <span><?php the_post_thumbnail(); ?>
           <?php the_excerpt(); ?>
         </span>
-        <a href="<?php the_permalink(); ?>">Lire la suite</a>
+        <a href="<?php the_permalink(); ?>" title="Voir l'article en entier">Lire la suite</a>
       </article>
     </div>
   <?php endwhile; ?>

@@ -9,9 +9,9 @@
     <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
-        <a href="<?php echo home_url(); ?>"><i class="icon-home"></i>&nbsp;Revenir à l'accueil</a>
+        <a href="<?php echo home_url(); ?>" title="Aller a l'accueil du site"><i class="icon-home"></i>&nbsp;Revenir à l'accueil</a>
       </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      <li class="toggle-topbar menu-icon"><a href="#" title="Dérouler le menu"><span>Menu</span></a></li>
     </ul>
     <div class="top-bar-section">
      <?php wp_nav_menu( array( 'theme_location' => 'extra-menu', 'menu_class' => 'right' ) ); ?>

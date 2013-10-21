@@ -167,10 +167,10 @@ if(isset($_POST['submitted'])) {
 <div class="large-3 columns">
   <h3 aria-level="3" role="heading" class="section">Mes informations personnelles</h3>
              <address itemscope itemtype="http://schema.org/Person" class="vcard">
-              <span class="name contact " itemprop="name"><i class="icon-user"></i>&nbsp;<a class="url fn" href="http://julien-roland.be"><?php echo $user->display_name ; ?></a></span>
+              <span class="name contact " itemprop="name"><i class="icon-user"></i>&nbsp;<a class="url fn" href="http://julien-roland.be" title="Aller sur mon site"><?php echo $user->display_name ; ?></a></span>
               <meta itemprop="name" content="http://www.julien-roland.be"/>
               <span class="mail contact email" itemprop="email"><i class="icon-envelope-alt"></i>&nbsp;<?php echo $user->user_email ; ?></span>
-              <span class="mail contact" itemprop="url"><i class="icon-globe"></i>&nbsp;<a href="<?php echo $user->user_url ; ?>"><?php echo $user->user_url ; ?></a></span>
+              <span class="mail contact" itemprop="url"><i class="icon-globe"></i>&nbsp;<a href="<?php echo $user->user_url ; ?>" title="Aller sur mon site"><?php echo $user->user_url ; ?></a></span>
 
               <span class="tel contact" itemprop="telephone"><i class="icon-mobile-phone"></i>&nbsp;+32 495/94.51.93</span>
               <span class="adress contact" itemprop="homeLocation"><i class="icon-map-marker"></i>&nbsp;Namur (Belgique)</span>
@@ -197,3 +197,4 @@ if(isset($_POST['submitted'])) {
 
 <?php get_footer(); ?>  
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/map.js"></script>
+  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/min/contact-form.min.js"></script>

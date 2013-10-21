@@ -37,7 +37,7 @@ $oddcomment = 'comment';
         <div class="comment-header">
           <?php  echo get_avatar( get_the_author_id(), $size = '60' );?>
           <div class="vcard">
-           <p class="comment-name" ><?php comment_author_link() ?></p> <a class="comment-date" href="#comment-<?php comment_ID() ?>" title=""><?php comment_date('l j F Y') ?> <?php _e('&agrave;');?> <?php comment_time('G:i') ?></a> <?php edit_comment_link('Modifier le commentaire','',''); ?>
+           <p class="comment-name" ><?php comment_author_link() ?></p> <a class="comment-date" href="#comment-<?php comment_ID() ?>" title="Cibler le commentaire"><?php comment_date('l j F Y') ?> <?php _e('&agrave;');?> <?php comment_time('G:i') ?></a> <?php edit_comment_link('Modifier le commentaire','',''); ?>
            <?php  echo get_comment_reply_link(); ?>
            <?php if ($comment->comment_approved == '0') : ?>
            <em><?php _e('Votre commentaire est en cours de mod&eacute;ration'); ?></em>
@@ -75,14 +75,14 @@ else $oddcomment = 'comment';
         <?php if ('open' == $post->comment_status) : ?>
 
         <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-        <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php the_permalink(); ?>">connect&eacute;</a> pour laisser un commentaire.</p>
+        <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php the_permalink(); ?>" title="Connectez-vous">connect&eacute;</a> pour laisser un commentaire.</p>
 
     <?php else : ?>
 
     <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
         <?php if ( $user_ID ) : ?>
 
-        <p>Connecté en tant que <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a> <!--<a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="D&eacute;connect&eacute; de ce compte">D&eacute;connection <i class="icon-user"></i></a>--></p>
+        <p>Connecté en tant que <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php" title="Aller sur le profil"><?php echo $user_identity; ?></a> <!--<a href="<?php echo get_option('siteurl'); ?>/wp-login.php?action=logout" title="D&eacute;connect&eacute; de ce compte">D&eacute;connection <i class="icon-user"></i></a>--></p>
 
     <?php else : ?>
     <label for="author"><small>Nom <?php if ($req) echo "(requis)"; ?></small></label></p>
